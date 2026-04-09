@@ -6,13 +6,18 @@ class Node:
 
 
 class SinglyLL:
-    def __init__(self, value):
-        self.head = Node(value)
+    def __init__(self):
+        self.head = None
 
     def insert_at_end(self, value):
         new_node = Node(value)
 
         current_head = self.head
+
+        if current_head is None:
+            self.head = new_node
+            return
+
         while current_head.next:
             current_head = current_head.next
 
@@ -20,6 +25,7 @@ class SinglyLL:
 
     def print_all(self):
         current_head = self.head
+
         while current_head:
             print(current_head.data)
             current_head = current_head.next
@@ -28,15 +34,14 @@ class SinglyLL:
         new_node = Node(value)
 
         current_head = self.head
+
         while current_head:
             if current_head.data == after:
                 new_node.next = current_head.next
                 current_head.next = new_node
-                return True
+                return
 
             current_head = current_head.next
-
-        return False
 
     def delete_value(self, value):
         if self.head.data == value:
@@ -75,18 +80,18 @@ class SinglyLL:
         current.next = head
 
 
-mylist = SinglyLL(1)
+mylist = SinglyLL()
 
 mylist.insert_at_end(2)
-mylist.insert_at_end(3)
+mylist.insert_at_end(13)
 mylist.insert_at_end(4)
-mylist.insert_after_value(10, 3)
-mylist.insert_at_end(5)
-mylist.delete_value(5)
-mylist.insert_at_beginning(12)
+mylist.insert_after_value(19, 41)
+# mylist.insert_at_end(5)
+# mylist.delete_value(5)
+# mylist.insert_at_beginning(12)
 
 
 mylist.print_all()
-mylist.reverse()
-print("Reversed")
-mylist.print_all()
+# mylist.reverse()
+# print("Reversed")
+# mylist.print_all()
