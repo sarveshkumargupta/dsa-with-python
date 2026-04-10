@@ -1,7 +1,4 @@
 
-a = [2, 3, 1, 12, 2, 9, 5, 4]
-
-
 def merge_sort(arr: list):
     if len(arr) <= 1:
         return arr
@@ -31,6 +28,8 @@ def merge(left_arr: list, right_arr: list):
 
     return result
 
+
+a = [2, 3, 1, 12, 2, 9, 5, 4]
 
 print(merge_sort(a))
 
